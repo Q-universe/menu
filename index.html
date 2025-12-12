@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嘉宝的点餐台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">70 小厨房 | 嘉宝的专属后厨</p>
+      <h1>你想吃的，我都会做</h1>
+      <p class="subtext">爱藏在每一口为你做的饭里</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="filters">
+      <input type="search" id="searchInput" placeholder="想吃什么？输个关键词试试...">
+      <div class="chips" id="categoryChips"></div>
+      <button class="filter-btn" id="healthyToggle">
+        <span>🌿 想清淡</span>
+      </button>
+      <button class="filter-btn" id="spicyToggle">
+        <span>🌶️ 想吃辣</span>
+      </button>
+    </section>
+
+    <section class="menu" id="menuList"></section>
+
+    <aside class="cart" id="cartPanel">
+      <div class="cart__header">
+        <h2>购物篮</h2>
+      </div>
+      <div class="cart__items" id="cartItems"></div>
+      <div class="cart__empty" id="cartEmpty">购物篮空空的，快挑几道犒劳自己～</div>
+      <div class="cart__footer">
+        <button class="btn primary" id="checkoutBtn">下单</button>
+        <p class="muted cart-notice" id="cartNotice"></p>
+      </div>
+    </aside>
+  </main>
+
+  <div class="modal" id="checkoutModal">
+    <div class="modal__content">
+      <div class="modal__header">
+        <div>
+          <h3>快复制这条信息发给 70 吧～</h3>
+          <p class="modal__subtitle">可以编辑后再复制</p>
+        </div>
+        <button class="icon-btn" id="closeModal" aria-label="关闭">✕</button>
+      </div>
+      <div class="message-box">
+        <textarea id="orderMessage" placeholder="在这里编辑你的点餐信息..."></textarea>
+        <div class="message-actions">
+          <button class="btn primary full" id="copyMessage">📋 复制并关闭</button>
+        </div>
+        <p class="muted" id="copyStatus"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Made for ❤️ 嘉宝</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
