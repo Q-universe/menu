@@ -46,6 +46,9 @@ const el = {
   orderMessage: document.getElementById("orderMessage"),
   copyMessage: document.getElementById("copyMessage"),
   copyStatus: document.getElementById("copyStatus"),
+  cartToggleBtn: document.getElementById("cartToggleBtn"),
+  cartCloseBtn: document.getElementById("cartCloseBtn"),
+  cartCountBadge: document.getElementById("cartCountBadge"),
 };
 
 function init() {
@@ -125,9 +128,16 @@ function renderCart() {
   if (!state.cart.length) {
     el.cartEmpty.style.display = "block";
     el.cartNotice.textContent = "";
+    if (el.cartCountBadge) {
+      el.cartCountBadge.style.display = "none";
+    }
   } else {
     el.cartEmpty.style.display = "none";
     el.cartNotice.textContent = "";
+    if (el.cartCountBadge) {
+      el.cartCountBadge.textContent = state.cart.length;
+      el.cartCountBadge.style.display = "flex";
+    }
   }
 
   state.cart.forEach(c => {
@@ -189,6 +199,21 @@ function bindEvents() {
       el.copyStatus.textContent = "复制失败，请手动全选复制。";
     }
   };
+
+  // 移动端购物车切换
+  if (el.cartToggleBtn) {
+    el.cartToggleBtn.onclick = () => {
+      el.cartPanel.classList.add("cart-open");
+      el.cartToggleBtn.classList.add("hidden");
+    };
+  }
+  
+  if (el.cartCloseBtn) {
+    el.cartCloseBtn.onclick = () => {
+      el.cartPanel.classList.remove("cart-open");
+      el.cartToggleBtn.classList.remove("hidden");
+    };
+  }
 
 }
 
